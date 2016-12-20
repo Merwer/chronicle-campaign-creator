@@ -1,3 +1,4 @@
+import { Campaign } from './campaign/model/campaign';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  campaign = new Campaign();
 }
