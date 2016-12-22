@@ -1,3 +1,4 @@
+import { CampaignLegendComponent } from './campaign-legend/campaign-legend.component';
 import { CampaignDeckComponent } from './campaign-deck/campaign-deck.component';
 import { SharedModule } from './shared/sharedModule';
 import { CampaignLevelComponent } from './campaign-level/campaign-level.component';
@@ -14,7 +15,8 @@ import { AppComponent } from './app.component';
     AppComponent,
     CampaignComponent,
     CampaignLevelComponent,
-    CampaignDeckComponent
+    CampaignDeckComponent,
+    CampaignLegendComponent
   ],
   imports: [
     BrowserModule,

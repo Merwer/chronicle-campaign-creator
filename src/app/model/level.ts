@@ -42,5 +42,6 @@ export class Level {
         this.playerDecks = [];
         this.challengeStars = [];
         this.pageTemplates = [];
+        this.playerHero = new Legend();
     }
 }
