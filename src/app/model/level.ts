@@ -37,4 +37,10 @@ export class Level {
     allowKillVictory: boolean;
     challengeStars: Challenge[];
     pageTemplates: PageTemplate[];
+
+    constructor() {
+        this.playerDecks = [];
+        this.challengeStars = [];
+        this.pageTemplates = [];
+    }
 }

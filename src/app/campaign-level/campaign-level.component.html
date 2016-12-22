@@ -1,0 +1,34 @@
+<label title="This is the title of the level shown on the campaign's level selection menu.">
+    Name
+    <input [(ngModel)]="level.name" type="text" name="name" required>
+</label>
+<label title="This is the description of the level, shown on the campaign's level selection menu.">
+    Description
+    <input [(ngModel)]="level.description" type="text" name="description" required>
+</label>
+<label title="Whether this level allows the user to mulligan at the beginning of the game. This will default to true if you don't specify it.">
+    Allow Mulligan
+    <input [(ngModel)]="level.allowMulligan" type="checkbox" name="allowMulligan" checked>
+</label>
+<label title="This determines if the player will go first or second during this game.">
+    Player Turn (First/Second)
+    <select [(ngModel)]="level.playerTurnPriority" name="playerTurnPriority">
+        <option *ngFor="let item of Enums.FirstTurnType | keys" [value]="item.key">{{item.value}}</option>
+    </select>
+</label>
+<label title="This defaults to true. If it's false, players won't be allowed to use their own custom decks or the basic decks to play this level and instead will have to use one of the decks you have provided.">
+    Allow User Decks 
+    <input [(ngModel)]="level.allowUserDecks" type="checkbox" name="allowUserDecks" checked>
+</label>
+
+<button (click)="addPlayerDeck()">Add Player Deck</button>
+
+<fieldset *ngFor="let playerDeck of level.playerDecks">
+    <legend>PLAYER DECK</legend>
+    <chronicle-campaign-deck [deck]="playerDeck"></chronicle-campaign-deck>
+</fieldset>
+
+<label title="This is a list of decks that the player can use to attempt this campaign level. You can list as many decks as you want here and each deck must have the following format:">
+    Player Decks
+    <input type="text" name="playerDecks">
+</label>

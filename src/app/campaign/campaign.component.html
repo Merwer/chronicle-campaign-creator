@@ -1,3 +1,4 @@
+
 <form>
     <label title="This is the name of your campaign, and will be displayed on the campaign menu if you don't provide a logo.">
         Name
@@ -16,8 +17,15 @@
         <input [(ngModel)]="campaign.customPageTexture" type="image" name="customPageTexture">
     </label>
 
-    <label title="This is a list of all of the level files included in your campaign. Chronicle uses this list to find the files used to create each level in your campaign. Each item in this list must match the exact filename of a level in your campaign folder. The levels of your campaign will be played in the order specified in this list, so in this example campaign, Level 1 will be Misthalin, Level 2 will be Morytania etc.">
+    <!--<label title="This is a list of all of the level files included in your campaign. Chronicle uses this list to find the files used to create each level in your campaign. Each item in this list must match the exact filename of a level in your campaign folder. The levels of your campaign will be played in the order specified in this list, so in this example campaign, Level 1 will be Misthalin, Level 2 will be Morytania etc.">
         Levels
         <input type="text" name="levels" required>
-    </label>
+    </label>-->
 </form>
+
+<button (click)="addLevel()">Add Level</button>
+
+<fieldset *ngFor="let level of campaign.levels">
+    <legend>LEVEL</legend>
+    <chronicle-campaign-level [level]="level"></chronicle-campaign-level>
+</fieldset>

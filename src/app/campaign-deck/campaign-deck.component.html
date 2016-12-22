@@ -1,0 +1,14 @@
+<label title="The name of the deck displayed on the deck selection screen">
+    Name
+    <input [(ngModel)]="deck.name" type="text">
+</label>
+<label title="The legend this deck belongs to.">
+    Archetype
+    <select [(ngModel)]="deck.archetype">
+        <option *ngFor="let item of Enums.Archetype | statics" [value]="item.key">{{item.value}}</option>
+    </select>
+</label>
+<label title="A list of card IDs">
+    Cards
+    <input type="text" name="playerDecks[0][cards]">
+</label>
