@@ -1,3 +1,4 @@
+import { CardService } from './shared/services/card.service';
 import { CampaignLegendComponent } from './campaign-legend/campaign-legend.component';
 import { CampaignDeckComponent } from './campaign-deck/campaign-deck.component';
 import { CampaignPlayerDeckComponent } from './campaign-player-deck/campaign-player-deck.component';
@@ -26,7 +27,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     SharedModule
   ],
-  providers: [],
+  providers: [CardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

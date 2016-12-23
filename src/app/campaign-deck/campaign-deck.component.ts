@@ -1,3 +1,4 @@
+import { CardService } from './../shared/services/card.service';
 import { Deck } from '../model/deck';
 import { Component } from '@angular/core';
 
@@ -9,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class CampaignDeckComponent {
   deck = new Deck();
+
+  constructor(private cardService: CardService) {
+
+  }
 }

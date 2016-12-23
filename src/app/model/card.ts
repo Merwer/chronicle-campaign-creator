@@ -1,3 +1,4 @@
-export class Card extends Number {
-
+export class Card {
+    id: number;
+    name: string;
 }

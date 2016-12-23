@@ -1,3 +1,4 @@
+import { CardService } from './../shared/services/card.service';
 import { Archetype } from '../model/archetype';
 import { PlayerDeck } from '../model/playerDeck';
 import { Campaign } from '../model/campaign';
@@ -11,8 +12,11 @@ import { Component } from '@angular/core';
 })
 export class CampaignPlayerDeckComponent {
   deck = new PlayerDeck();
-
   Enums = {
     Archetype: Archetype
   };
+
+  constructor(private cardService: CardService) {
+
+  }
 }

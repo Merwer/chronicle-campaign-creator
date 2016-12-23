@@ -1,5 +1,6 @@
-<div class="alert">TODO</div>
 <label title="A list of card IDs">
     Cards
-    <input type="text" name="deck">
+    <select>
+        <option *ngFor="let card of cardService.getCards()" [value]="card.id">{{card.name}}</option>
+    </select>
 </label>
