@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     inputs: ['deck']
 })
 export class CampaignDeckComponent {
-  deck = new Deck();
+  deck: Deck;
 
   constructor(private cardService: CardService) {
 

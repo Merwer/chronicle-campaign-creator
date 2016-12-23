@@ -23,7 +23,7 @@ export class Level {
     opponentDeck: Deck;
     opponentHero: OpponentLegend;
     opponentAvatarOverride: Card;
-    opponentEmblemOverride: string;
+    opponentEmblemOverride: Card;
     opponentTitleOverride: string;
     introDialogue: string;
     objective: Goal;
