@@ -1,8 +1,7 @@
-import { Card } from './card';
 import { Archetype } from './archetype';
 
-export class PlayerDeck {
+import { Deck } from './deck';
+export class PlayerDeck extends Deck {
     name: string;
     archetype: Archetype;
-    cards: Card[];
 }

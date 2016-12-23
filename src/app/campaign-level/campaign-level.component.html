@@ -24,10 +24,65 @@
 <button (click)="addPlayerDeck()">Add Player Deck</button>
 <fieldset *ngFor="let playerDeck of level.playerDecks">
     <legend>PLAYER DECK</legend>
-    <chronicle-campaign-deck [deck]="playerDeck"></chronicle-campaign-deck>
+    <chronicle-campaign-player-deck [deck]="playerDeck"></chronicle-campaign-player-deck>
 </fieldset>
 
 <fieldset>
     <legend title="This allows you to change the starting stats of the player's hero. They all default to their values in a regular game of Chronicle if you don't include them. you can change the following properties">Player Hero</legend>
     <chronicle-campaign-legend [legend]="level.playerHero"></chronicle-campaign-legend>
 </fieldset>
+
+<fieldset>
+    <legend>Opponent</legend>
+    <label title="How difficult the AI will be. You can choose between EASY, NORMAL, or HARD (these equate to the Bronze, Silver and Hard level AI in practice mode).">
+        Opponent Difficulty
+        <select [(ngModel)]="level.opponentDifficulty" name="opponentDifficulty" required>
+            <option *ngFor="let item of Enums.Difficulty | statics" [value]="item.key">{{item.value}}</option>
+        </select>
+    </label>
+    <label title="A list of card IDs that makes up the opponent's deck. Use this list to determine which IDs you need.">
+        Opponent Deck
+        <input [(ngModel)]="level.opponentDeck" type="text" name="opponentDeck[cards]" required>
+    </label>
+    <fieldset>
+        <legend title="Used to set up the starting stats of the opponent">Opponent Hero</legend>
+        <label title="The legend the oppponent will be playing as.">
+            Opponent Hero
+            <select name="opponentHero[archetype]" required>
+                <option value="Linza">Linza</option>
+                <option value="Raptor">Raptor</option>
+                <option value="Ozan">Ozan</option>
+                <option value="Vanescula">Vanescula</option>
+                <option value="Ariane">Ariane</option>
+                <option value="Morvran">Morvran</option>
+            </select>
+        </label>
+        <label title="Starting Health">
+            Health
+            <input type="number" name="opponentHero[health]">
+        </label>
+        <label title="Maximum Health">
+            Max Health
+            <input type="number" name="opponentHero[maxHealth]">
+        </label>
+        <label title="Starting Attack">
+            Attack
+            <input type="number" name="opponentHero[attack]">
+        </label>
+        <label title="Starting Gold">
+            Gold
+            <input type="number" name="opponentHero[gold]">
+        </label>
+        <label title="Starting Armour">
+            Armour
+            <input type="number" name="opponentHero[armour]">
+        </label>
+        <label title="The attack of their weapon (if both this and the durability are 0 then the hero won't start with a weapon)">
+            Weapon Attack
+            <input type="number" name="opponentHero[weaponAttack]">
+        </label>
+        <label title="The starting durability of their weapon (if both this and the attack are 0 then the hero won't start with a weapon)">
+            Weapon Durability
+            <input type="number" name="opponentHero[weaponDurability]">
+        </label>
+    </fieldset>

@@ -1,5 +1,6 @@
 import { CampaignLegendComponent } from './campaign-legend/campaign-legend.component';
 import { CampaignDeckComponent } from './campaign-deck/campaign-deck.component';
+import { CampaignPlayerDeckComponent } from './campaign-player-deck/campaign-player-deck.component';
 import { SharedModule } from './shared/sharedModule';
 import { CampaignLevelComponent } from './campaign-level/campaign-level.component';
 import { CampaignComponent } from './campaign/campaign.component';
@@ -16,7 +17,8 @@ import { AppComponent } from './app.component';
     CampaignComponent,
     CampaignLevelComponent,
     CampaignDeckComponent,
-    CampaignLegendComponent
+    CampaignLegendComponent,
+    CampaignPlayerDeckComponent
   ],
   imports: [
     BrowserModule,
