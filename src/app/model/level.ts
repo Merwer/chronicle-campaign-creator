@@ -43,5 +43,6 @@ export class Level {
         this.challengeStars = [];
         this.pageTemplates = [];
         this.playerHero = new Legend();
+        this.opponentHero = new OpponentLegend();
     }
 }
