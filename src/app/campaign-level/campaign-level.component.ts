@@ -14,10 +14,10 @@ import { Component } from '@angular/core';
 export class CampaignLevelComponent {
   level: Level;
 
-    Enums = {
-        FirstTurnType: FirstTurnType,
-        Difficulty: Difficulty
-    }
+  Enums = {
+      FirstTurnType: FirstTurnType,
+      Difficulty: Difficulty
+  }
 
   addPlayerDeck = function () {
     this.level.playerDecks.push(new PlayerDeck());

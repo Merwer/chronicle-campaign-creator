@@ -42,47 +42,8 @@
     </label>
     <label title="A list of card IDs that makes up the opponent's deck. Use this list to determine which IDs you need.">
         Opponent Deck
-        <input [(ngModel)]="level.opponentDeck" type="text" name="opponentDeck[cards]" required>
+        <chronicle-campaign-deck [deck]="level.opponentDeck"></chronicle-campaign-deck>
     </label>
     <fieldset>
-        <legend title="Used to set up the starting stats of the opponent">Opponent Hero</legend>
-        <label title="The legend the oppponent will be playing as.">
-            Opponent Hero
-            <select name="opponentHero[archetype]" required>
-                <option value="Linza">Linza</option>
-                <option value="Raptor">Raptor</option>
-                <option value="Ozan">Ozan</option>
-                <option value="Vanescula">Vanescula</option>
-                <option value="Ariane">Ariane</option>
-                <option value="Morvran">Morvran</option>
-            </select>
-        </label>
-        <label title="Starting Health">
-            Health
-            <input type="number" name="opponentHero[health]">
-        </label>
-        <label title="Maximum Health">
-            Max Health
-            <input type="number" name="opponentHero[maxHealth]">
-        </label>
-        <label title="Starting Attack">
-            Attack
-            <input type="number" name="opponentHero[attack]">
-        </label>
-        <label title="Starting Gold">
-            Gold
-            <input type="number" name="opponentHero[gold]">
-        </label>
-        <label title="Starting Armour">
-            Armour
-            <input type="number" name="opponentHero[armour]">
-        </label>
-        <label title="The attack of their weapon (if both this and the durability are 0 then the hero won't start with a weapon)">
-            Weapon Attack
-            <input type="number" name="opponentHero[weaponAttack]">
-        </label>
-        <label title="The starting durability of their weapon (if both this and the attack are 0 then the hero won't start with a weapon)">
-            Weapon Durability
-            <input type="number" name="opponentHero[weaponDurability]">
-        </label>
+        <chronicle-campaign-legend [legend]="level.opponentHero"></chronicle-campaign-legend>
     </fieldset>
