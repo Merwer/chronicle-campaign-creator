@@ -1,4 +1,6 @@
+import { Card } from './../model/card';
 import { PageTemplate } from '../model/pageTemplate';
+import { MapId } from '../model/mapId';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,4 +11,15 @@ import { Component } from '@angular/core';
 })
 export class CampaignPageTemplateComponent {
   template: PageTemplate;
+
+  Enums = {
+    MapId: MapId
+  }
+
+  addCardToDraw = function () {
+    this.template.cardsToDraw.push(new Card());
+  }
+  addOpponentCardToDraw = function () {
+    this.template.opponentCardsToDraw.push(new Card());
+  }
 }
