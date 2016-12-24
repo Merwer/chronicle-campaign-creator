@@ -44,43 +44,9 @@
         Failure Checked During Game
         <input [(ngModel)]="challenge.failureCheckedDuringGame" type="checkbox" name="challengeStars[0][failureCheckedDuringGame]">
     </label>
-    <fieldset *ngIf="challenge.cardPredicates != null && challenge.cardPredicates.length > 0">
+    <fieldset>
+        <button (click)="addCardPredicate()">Add Card Predicate</button>
         <legend title="A list of predicates used when determining deck restrictions/card based objectives. You can have as many of these as you want, and if any card in the player's deck matches any of them then they won't pass the deck restriction. Each predicate must include">Card Predicates</legend>
-        <!-- TODO: Card Predicate Component -->
-        <!--
-        <label title="The value of the card we're testing against.">
-            Predicate Type
-            <select name="challengeStars[0][cardPredicates][0][predicateType]">
-                <option value="SPECIFIC">SPECIFIC</option>
-                <option value="TYPE">TYPE</option>
-                <option value="FAMILY">FAMILY</option>
-                <option value="ATTACK">ATTACK</option>
-                <option value="HEALTH">HEALTH</option>
-                <option value="COST">COST</option>
-                <option value="REWARD_ATTACK">REWARD_ATTACK</option>
-                <option value="REWARD_HEALTH">REWARD_HEALTH</option>
-                <option value="REWARD_GOLD">REWARD_GOLD</option>
-                <option value="REWARD_ARMOUR">REWARD_ARMOUR</option>
-                <option value="REWARD_WEAPON_DURABILITY">REWARD_WEAPON_DURABILITY</option>
-                <option value="REWARD_WEAPON_ATTACK">REWARD_WEAPON_ATTACK</option>
-                <option value="AGGRESSIVE">AGGRESSIVE</option>
-            </select>
-        </label>
-        <label title="">
-            Predciate Eval
-            <select name="challengeStars[0][cardPredicates][0][predicateEval]">
-                <option value="EQUALS">EQUALS</option>
-                <option value="NOT_EQUALS">NOT_EQUALS</option>
-                <option value="GREATER_THAN">GREATER_THAN</option>
-                <option value="LESS_THAN">LESS_THAN</option>
-                <option value="GREATER_OR_EQUAL">GREATER_OR_EQUAL</option>
-                <option value="SMALLER_OR_EQUAL">SMALLER_OR_EQUAL</option>
-            </select>
-        </label>
-        <label title="The number we're actually testing against">
-            Predicate Value
-            <input type="number" name="challengeStars[0][cardPredicates][0][predicateValue]">
-        </label>
-        -->
+        <chronicle-campaign-card-predicate *ngFor="let item of challenge.cardPredicates" [predicate]="item"></chronicle-campaign-card-predicate>
     </fieldset>
 </fieldset>

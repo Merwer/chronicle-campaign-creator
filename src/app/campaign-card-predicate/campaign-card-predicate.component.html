@@ -1,0 +1,19 @@
+<fieldset>
+    <legend>Card Predicate</legend>
+    <label title="The value of the card we're testing against.">
+        Predicate Type
+        <select [(ngModel)]="predicate.predicateType" name="challengeStars[0][cardPredicates][0][predicateType]">
+            <option *ngFor="let item of Enums.CardPredicateType | statics" value="item.key">{{item.value}}</option>
+        </select>
+    </label>
+    <label title="">
+        Predciate Eval
+        <select [(ngModel)]="predicate.predicateEval" name="challengeStars[0][cardPredicates][0][predicateEval]">
+            <option *ngFor="let item of Enums.CardPredicateEvaluation | statics" value="item.key">{{item.value}}</option>
+        </select>
+    </label>
+    <label title="The number we're actually testing against">
+        Predicate Value
+        <input [(ngModel)]="predicate.predicateValue" type="number" name="challengeStars[0][cardPredicates][0][predicateValue]">
+    </label>
+</fieldset>

@@ -1,3 +1,4 @@
+import { CardPredicate } from './../model/cardPredicate';
 import { ChallengeFailureGoal } from '../model/challengeFailureGoal';
 import { GoalSubtype } from '../model/goalSubtype';
 import { ChallengeGoal } from '../model/challengeGoal';
@@ -12,6 +13,10 @@ import { Component } from '@angular/core';
 })
 export class CampaignChallengeComponent {
   challenge: Challenge;
+
+  addCardPredicate = function () {
+      this.challenge.cardPredicates.push(new CardPredicate());
+  }
 
   Enums = {
       ChallengeGoal: ChallengeGoal,

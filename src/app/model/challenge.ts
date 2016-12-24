@@ -14,4 +14,8 @@ export class Challenge {
     failureAmount: number;
     failureCheckedDuringGame: boolean;
     cardPredicates: CardPredicate[];
+
+    constructor() {
+        this.cardPredicates = [];
+    }
 }
