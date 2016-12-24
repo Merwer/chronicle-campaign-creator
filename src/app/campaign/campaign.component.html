@@ -23,9 +23,9 @@
     </label>-->
 </form>
 
-<button (click)="addLevel()">Add Level</button>
 
-<fieldset *ngFor="let level of campaign.levels">
-    <legend>Level</legend>
-    <chronicle-campaign-level [level]="level"></chronicle-campaign-level>
+<fieldset>
+    <legend>Levels</legend>
+    <button (click)="addLevel()">Add Level</button>
+    <chronicle-campaign-level *ngFor="let level of campaign.levels" [level]="level"></chronicle-campaign-level>
 </fieldset>
