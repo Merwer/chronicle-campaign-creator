@@ -1,3 +1,5 @@
+import { CampaignChallengeComponent } from './campaign-challenge/campaign-challenge.component';
+import { CampaignPageTemplateComponent } from './campaign-page-template/campaign-page-template.component';
 import { CampaignCardComponent } from './campaign-card/campaign-card.component';
 import { CardService } from './shared/services/card.service';
 import { CampaignLegendComponent } from './campaign-legend/campaign-legend.component';
@@ -21,7 +23,9 @@ import { AppComponent } from './app.component';
     CampaignCardComponent,
     CampaignDeckComponent,
     CampaignLegendComponent,
-    CampaignPlayerDeckComponent
+    CampaignPlayerDeckComponent,
+    CampaignPageTemplateComponent,
+    CampaignChallengeComponent
   ],
   imports: [
     BrowserModule,

@@ -21,18 +21,17 @@
     <input [(ngModel)]="level.allowUserDecks" type="checkbox" name="allowUserDecks" checked>
 </label>
 
-<button (click)="addPlayerDeck()">Add Player Deck</button>
-<fieldset *ngFor="let playerDeck of level.playerDecks">
-    <legend>PLAYER DECK</legend>
-    <label title="A list of card IDs">
-        Cards
-        <chronicle-campaign-player-deck [deck]="playerDeck"></chronicle-campaign-player-deck>
-    </label>
-</fieldset>
-
 <fieldset>
-    <legend title="This allows you to change the starting stats of the player's hero. They all default to their values in a regular game of Chronicle if you don't include them. you can change the following properties">Player Hero</legend>
-    <chronicle-campaign-legend [legend]="level.playerHero"></chronicle-campaign-legend>
+    <legend>Player</legend>
+    <fieldset>
+        <legend title="This allows you to change the starting stats of the player's hero. They all default to their values in a regular game of Chronicle if you don't include them. you can change the following properties">Player Hero</legend>
+        <chronicle-campaign-legend [legend]="level.playerHero"></chronicle-campaign-legend>
+    </fieldset>
+    <button (click)="addPlayerDeck()">Add Player Deck</button>
+    <fieldset *ngFor="let playerDeck of level.playerDecks">
+        <legend>Player Deck</legend>
+        <chronicle-campaign-player-deck [deck]="playerDeck"></chronicle-campaign-player-deck>
+    </fieldset>
 </fieldset>
 
 <fieldset>
@@ -43,14 +42,6 @@
             <option *ngFor="let item of Enums.Difficulty | statics" [value]="item.key">{{item.value}}</option>
         </select>
     </label>
-    <label title="A list of card IDs that makes up the opponent's deck. Use this list to determine which IDs you need.">
-        Opponent Deck
-        <chronicle-campaign-deck [deck]="level.opponentDeck"></chronicle-campaign-deck>
-    </label>
-    <fieldset>
-        <chronicle-campaign-legend [legend]="level.opponentHero"></chronicle-campaign-legend>
-    </fieldset>
-    
     <label title="Use this to specify a card ID which should be used as the opponent's legend rather than the normal legends (eg the Drunken Pirate in the first level of the Trials of Radimus campaign). If you leave this out then the opponent will default to the legend you specify in opponentHero. NOTE: Only the cards already used as opponents in the existing official campaigns will have full animation.">
         Avatar ID
         <chronicle-campaign-card [(card)]="level.opponentAvatarOverride"></chronicle-campaign-card>
@@ -67,4 +58,71 @@
         Intro Dialog
         <input [(ngModel)]="level.introDialogue" type="text" name="introDialogue">
     </label>
+    <fieldset>
+        <legend>Opponent Hero</legend>
+        <chronicle-campaign-legend [legend]="level.opponentHero"></chronicle-campaign-legend>
+    </fieldset>
+    <fieldset>
+        <legend>Opponent Deck</legend>
+        <label title="A list of card IDs that makes up the opponent's deck. Use this list to determine which IDs you need.">
+            <chronicle-campaign-deck [deck]="level.opponentDeck"></chronicle-campaign-deck>
+        </label>
+    </fieldset>
+</fieldset>
+<fieldset>
+    <legend>Objective</legend>
+    <label title="The way the player wins the game.">
+        Objective
+        <select [(ngModel)]="level.objective" name="objective">
+            <option *ngFor="let item of Enums.Goal | statics" [value]="item.key">{{item.value}}</option>
+        </select>
+    </label>
+    <label title="Used by some objectives">
+        Objective subtype
+        <select [(ngModel)]="level.objectiveSubtype" name="objectiveSubtype">
+            <option *ngFor="let item of Enums.GoalSubtype | statics" [value]="item.key">{{item.value}}</option>
+        </select>
+    </label>
+    <label title="used by some objectives to specify an amount of a stat that the player needs to reach/avoid">
+        Objective Goal
+        <input [(ngModel)]="level.objectiveGoal" type="number" name="objectiveGoal">
+    </label>
+    <label title="if this is true, the game will end if the opponent meets the objective. Defaults to false.">
+        Objective Affects Opponent
+        <input [(ngModel)]="level.objectiveAffectsOpponent" type="checkbox" name="objectiveAffectsOpponent">
+    </label>
+    <label title="An optional extra way for the player to lose the game other than dying.">
+        Failure Condition
+        <select [(ngModel)]="level.failureCondition" name="failureCondition">
+            <option *ngFor="let item of Enums.FailureCondition | statics" value="item.key">{{item.value}}</option>
+        </select>
+    </label>
+    <label title="Used by some failure conditions.">
+        Failure Condition Type
+        <select [(ngModel)]="level.failureConditionType" name="failureConditionType">
+            <option *ngFor="let item of Enums.GoalSubtype | statics" value="item.key">{{item.value}}</option>
+        </select>
+    </label>
+    <label title="Used by the failure condition as specified above">
+        Failure Amount
+        <input [(ngModel)]="level.failureAmount" type="number" name="failureAmount">
+    </label>
+    <label title="If this is true, the game will end if the opponent meets the failure condition. Defaults to false.">
+        Failure Affects Opponent
+        <input [(ngModel)]="level.failureAffectsOpponent" type="checkbox" name="failureAffectsOpponent">
+    </label>
+    <label title="If this is true, the player will win the game if they defeat the opponent, even if they don't beat the objective set above.">
+        Allow Kill Victory
+        <input [(ngModel)]="level.allowKillVictory" type="checkbox" name="allowKillVictory">
+    </label>
+</fieldset>
+<button (click)="addChallengeStar()">Add Challenge Star</button>
+<fieldset *ngIf="level.challengeStars != null && level.challengeStars.length > 0">
+    <legend>Challenge Stars</legend>
+    <chronicle-campaign-challenge *ngFor="let item of level.challengeStars" [challenge]="item"></chronicle-campaign-challenge>
+</fieldset>
+<button (click)="addPageTemplate()">Add Page Template</button>
+<fieldset *ngIf="level.pageTemplates != null && level.pageTemplates.length > 0">
+    <legend>Page Templates</legend>
+    <chronicle-campaign-page-template *ngFor="let item of level.pageTemplates" [template]="item"></chronicle-campaign-page-template>
 </fieldset>
