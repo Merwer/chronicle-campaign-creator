@@ -25,8 +25,8 @@ export class AppComponent {
       let zip = new JSZip();
       let campaign = this.campaign;
       let file = zip.file("campaign.json", JSON.stringify(campaign));
-      this.levels.forEach(level => {
-        zip.file(level.name + ".json", JSON.stringify(level));
+      this.levels.forEach((level, index) => {
+        zip.file('level-' + index + ".json", JSON.stringify(level));
       });
       zip.generateAsync({type:"blob"})
           .then(function(content) {
@@ -36,5 +36,6 @@ export class AppComponent {
 
   addLevel = function () {
     this.levels.push(new Level());
+    this.campaign.levels.push('level-' + this.levels.length);
   }
 }
