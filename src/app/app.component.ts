@@ -22,24 +22,15 @@ export class AppComponent {
   }
 
   createCampaignFile = function () {
-    console.log("Test");
-    /*
-      var forms = document.querySelectorAll('form');
-      var campaignForm = forms[0];
-      var levelForm = forms[1];
-      var serializeOptions = { 'includeEmpty': false, 'encodes': { 'checkbox': true, 'number': true } };
-      var campaign = $(campaignForm).serializeObject(serializeOptions); // This is the only usage of jQuery.
-      var level = $(levelForm).serializeObject(serializeOptions); // This is the only usage of jQuery.
-      console.log("Campaign", campaign);
-      console.log("Level", level);
-      return false;
-      */
-      var zip = new JSZip();
-      var file = zip.file("campaign.json", "Hello World");
+      let zip = new JSZip();
+      let campaign = this.campaign;
+      let file = zip.file("campaign.json", JSON.stringify(campaign));
+      this.levels.forEach(level => {
+        zip.file(level.name + ".json", JSON.stringify(level));
+      });
       zip.generateAsync({type:"blob"})
           .then(function(content) {
-              // see FileSaver.js
-              saveAs(content, "example.zip");
+              saveAs(content, campaign.name + ".zip");
           });
   }
 
