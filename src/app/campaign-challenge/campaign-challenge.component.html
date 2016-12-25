@@ -7,13 +7,13 @@
     <label title="The way the player beats the challenge.">
         Objective
         <select [(ngModel)]="challenge.objective">
-            <option *ngFor="let item of Enums.ChallengeGoal | statics" [value]="item.key">{{item.value}}</option>
+            <option *ngFor="let item of Enums.ChallengeGoal | statics" [value]="item.value">{{item.key}}</option>
         </select>
     </label>
     <label title="Used by some objectives.">
         Objective subtype
         <select [(ngModel)]="challenge.objectiveSubtype">
-            <option *ngFor="let item of Enums.GoalSubtype | statics" [value]="item.key">{{item.value}}</option>
+            <option *ngFor="let item of Enums.GoalSubtype | statics" [value]="item.value">{{item.key}}</option>
         </select>
     </label>
     <label title="Used by some objectives to specify an amount of a stat that the player needs to reach/avoid">
@@ -27,13 +27,13 @@
     <label title="The way this challenge is failed. This will always override the objective if it's met.">
         Failure Condition
         <select [(ngModel)]="challenge.failureCondition">
-            <option *ngFor="let item of Enums.ChallengeFailureGoal | statics" [value]="item.key">{{item.value}}</option>
+            <option *ngFor="let item of Enums.ChallengeFailureGoal | statics" [value]="item.value">{{item.key}}</option>
         </select>
     </label>
     <label title="Used by some failure conditions">
         Failure Condition Type
         <select [(ngModel)]="challenge.failureConditionType" name="failureConditionType">
-            <option *ngFor="let item of Enums.GoalSubtype | statics" [value]="item.key">{{item.value}}</option>
+            <option *ngFor="let item of Enums.GoalSubtype | statics" [value]="item.value">{{item.key}}</option>
         </select>
     </label>
     <label title="Used by the failure condition as specified above.">

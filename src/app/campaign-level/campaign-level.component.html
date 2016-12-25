@@ -41,7 +41,7 @@
         <label title="How difficult the AI will be. You can choose between EASY, NORMAL, or HARD (these equate to the Bronze, Silver and Hard level AI in practice mode).">
             Opponent Difficulty
             <select [(ngModel)]="level.opponentDifficulty" name="opponentDifficulty" required>
-                <option *ngFor="let item of Enums.Difficulty | statics" [value]="item.key">{{item.value}}</option>
+                <option *ngFor="let item of Enums.Difficulty | statics" [value]="item.value">{{item.key}}</option>
             </select>
         </label>
         <label title="Use this to specify a card ID which should be used as the opponent's legend rather than the normal legends (eg the Drunken Pirate in the first level of the Trials of Radimus campaign). If you leave this out then the opponent will default to the legend you specify in opponentHero. NOTE: Only the cards already used as opponents in the existing official campaigns will have full animation.">
@@ -76,13 +76,13 @@
         <label title="The way the player wins the game.">
             Objective
             <select [(ngModel)]="level.objective" name="objective">
-                <option *ngFor="let item of Enums.Goal | statics" [value]="item.key">{{item.value}}</option>
+                <option *ngFor="let item of Enums.Goal | statics" [value]="item.value">{{item.key}}</option>
             </select>
         </label>
         <label title="Used by some objectives">
             Objective subtype
             <select [(ngModel)]="level.objectiveSubtype" name="objectiveSubtype">
-                <option *ngFor="let item of Enums.GoalSubtype | statics" [value]="item.key">{{item.value}}</option>
+                <option *ngFor="let item of Enums.GoalSubtype | statics" [value]="item.value">{{item.key}}</option>
             </select>
         </label>
         <label title="used by some objectives to specify an amount of a stat that the player needs to reach/avoid">
