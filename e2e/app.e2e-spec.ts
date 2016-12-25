@@ -1,6 +1,6 @@
 import { ChronicleCampaignCreatorAngularPage } from './app.po';
 
-describe('chronicle-campaign-creator-angular App', function() {
+describe('chronicle-campaign-creator App', function() {
   let page: ChronicleCampaignCreatorAngularPage;
 
   beforeEach(() => {
