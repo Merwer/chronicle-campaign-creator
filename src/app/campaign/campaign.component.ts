@@ -10,8 +10,4 @@ import { Component } from '@angular/core';
 })
 export class CampaignComponent {
   campaign: Campaign;
-
-  addLevel = function() {
-    this.campaign.levels.push(new Level());
-  }
 }

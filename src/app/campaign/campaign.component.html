@@ -1,31 +1,17 @@
 
-<form>
-    <label title="This is the name of your campaign, and will be displayed on the campaign menu if you don't provide a logo.">
-        Name
-        <input [(ngModel)]="campaign.name" type="text" name="name" required>
-    </label>
-    <label title="This description is shown in game to tell players what to expect in this campaign.">
-        Description
-        <input [(ngModel)]="campaign.description" type="text" name="description" required>
-    </label>
-    <label title="This is the exact filename of the image you would like to use for your campaign logo. This image should be in PNG or JPG format and ideally should be 1024x1024 pixels.">
-        Title Image
-        <input [(ngModel)]="campaign.customTitleImage" type="image" name="customTitleImage">
-    </label>
-    <label title="This is the exact filename of the image you would like to use as the page texture in the Chronicle book in game on the campaign menu. This texture should be in PNG or JPG format and should be similar to the example template image you can find here">
-        Page Texture
-        <input [(ngModel)]="campaign.customPageTexture" type="image" name="customPageTexture">
-    </label>
-
-    <!--<label title="This is a list of all of the level files included in your campaign. Chronicle uses this list to find the files used to create each level in your campaign. Each item in this list must match the exact filename of a level in your campaign folder. The levels of your campaign will be played in the order specified in this list, so in this example campaign, Level 1 will be Misthalin, Level 2 will be Morytania etc.">
-        Levels
-        <input type="text" name="levels" required>
-    </label>-->
-</form>
-
-
-<fieldset>
-    <legend>Levels</legend>
-    <button (click)="addLevel()">Add Level</button>
-    <chronicle-campaign-level *ngFor="let level of campaign.levels" [level]="level"></chronicle-campaign-level>
-</fieldset>
+<label title="This is the name of your campaign, and will be displayed on the campaign menu if you don't provide a logo.">
+    Name
+    <input [(ngModel)]="campaign.name" type="text" name="name" required>
+</label>
+<label title="This description is shown in game to tell players what to expect in this campaign.">
+    Description
+    <input [(ngModel)]="campaign.description" type="text" name="description" required>
+</label>
+<label title="This is the exact filename of the image you would like to use for your campaign logo. This image should be in PNG or JPG format and ideally should be 1024x1024 pixels.">
+    Title Image
+    <input [(ngModel)]="campaign.customTitleImage" type="image" name="customTitleImage">
+</label>
+<label title="This is the exact filename of the image you would like to use as the page texture in the Chronicle book in game on the campaign menu. This texture should be in PNG or JPG format and should be similar to the example template image you can find here">
+    Page Texture
+    <input [(ngModel)]="campaign.customPageTexture" type="image" name="customPageTexture">
+</label>

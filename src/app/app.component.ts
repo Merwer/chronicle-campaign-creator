@@ -1,3 +1,4 @@
+import { Level } from './model/level';
 import { Campaign } from './model/campaign';
 import { Component } from '@angular/core';
 
@@ -10,9 +11,15 @@ declare let saveAs: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Campaign Creator';
+  title: string;
+  campaign: Campaign;
+  levels: Level[];
 
-  campaign = new Campaign();
+  constructor() {
+    this.title = 'Campaign Creator';
+    this.campaign = new Campaign();
+    this.levels = [];
+  }
 
   createCampaignFile = function () {
     console.log("Test");
@@ -34,5 +41,9 @@ export class AppComponent {
               // see FileSaver.js
               saveAs(content, "example.zip");
           });
+  }
+
+  addLevel = function () {
+    this.levels.push(new Level());
   }
 }

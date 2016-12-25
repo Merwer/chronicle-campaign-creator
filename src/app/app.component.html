@@ -7,4 +7,10 @@
   <chronicle-campaign [campaign]="campaign"></chronicle-campaign>
 </fieldset>
 
+<fieldset>
+    <legend>Levels</legend>
+    <button (click)="addLevel()">Add Level</button>
+    <chronicle-campaign-level *ngFor="let level of levels" [level]="level"></chronicle-campaign-level>
+</fieldset>
+
 <button (click)="createCampaignFile()">Create Campaign</button>
