@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class ChronicleCampaignCreatorAngularPage {
+export class ChronicleCampaignCreatorPage {
   navigateTo() {
     return browser.get('/');
   }

@@ -1,10 +1,10 @@
-import { ChronicleCampaignCreatorAngularPage } from './app.po';
+import { ChronicleCampaignCreatorPage } from './app.po';
 
 describe('chronicle-campaign-creator App', function() {
-  let page: ChronicleCampaignCreatorAngularPage;
+  let page: ChronicleCampaignCreatorPage;
 
   beforeEach(() => {
-    page = new ChronicleCampaignCreatorAngularPage();
+    page = new ChronicleCampaignCreatorPage();
   });
 
   it('should display message saying app works', () => {
