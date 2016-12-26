@@ -1,6 +1,6 @@
 import { CardService } from './../shared/services/card.service';
 import { Card } from '../model/card';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'chronicle-campaign-card',
@@ -8,10 +8,14 @@ import { Component } from '@angular/core';
     styleUrls: ['./campaign-card.component.css'],
     inputs: ['card']
 })
-export class CampaignCardComponent {
+export class CampaignCardComponent implements OnInit {
   card: Card;
 
   constructor(private cardService: CardService) {
 
+  }
+
+  ngOnInit(): void {
+    this.cardService.init();
   }
 }

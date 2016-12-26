@@ -1,6 +1,6 @@
 <label title="The cards in this deck">
     Cards
     <select multiple="multiple">
-        <option *ngFor="let card of cardService.getCards()" [value]="card.id">{{card.name}}</option>
+        <option *ngFor="let card of cardService.getCards() | async" [value]="card.id">{{card.name}}</option>
     </select>
 </label>

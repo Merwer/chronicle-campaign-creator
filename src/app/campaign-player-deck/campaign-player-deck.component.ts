@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs/Observable';
+import { Card } from './../model/card';
 import { CardService } from './../shared/services/card.service';
 import { Archetype } from '../model/archetype';
 import { PlayerDeck } from '../model/playerDeck';
 import { Campaign } from '../model/campaign';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'chronicle-campaign-player-deck',
@@ -10,7 +12,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./campaign-player-deck.component.css'],
     inputs: ['deck']
 })
-export class CampaignPlayerDeckComponent {
+export class CampaignPlayerDeckComponent implements OnInit {
   deck = new PlayerDeck();
   Enums = {
     Archetype: Archetype
@@ -18,5 +20,9 @@ export class CampaignPlayerDeckComponent {
 
   constructor(private cardService: CardService) {
 
+  }
+
+  ngOnInit(): void {
+    this.cardService.init();
   }
 }
